@@ -1,0 +1,36 @@
+{
+    "name": "Geuneda.Realtime.MessagePack.Tests.EditMode",
+    "rootNamespace": "",
+    "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "Geuneda.Core",
+        "Geuneda.Realtime",
+        "Geuneda.Realtime.MessagePack",
+        "UniTask"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll",
+        "MessagePack.dll",
+        "MessagePack.Annotations.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS",
+        "GEUNEDA_MESSAGEPACK"
+    ],
+    "versionDefines": [
+        {
+            "name": "org.nuget.messagepack",
+            "expression": "3.0.0",
+            "define": "GEUNEDA_MESSAGEPACK"
+        }
+    ],
+    "noEngineReferences": false
+}

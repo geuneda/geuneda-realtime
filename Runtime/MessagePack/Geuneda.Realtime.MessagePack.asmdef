@@ -1,0 +1,27 @@
+{
+    "name": "Geuneda.Realtime.MessagePack",
+    "rootNamespace": "Geuneda.Realtime",
+    "references": [
+        "Geuneda.Realtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "MessagePack.dll",
+        "MessagePack.Annotations.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "GEUNEDA_MESSAGEPACK"
+    ],
+    "versionDefines": [
+        {
+            "name": "org.nuget.messagepack",
+            "expression": "3.0.0",
+            "define": "GEUNEDA_MESSAGEPACK"
+        }
+    ],
+    "noEngineReferences": false
+}
