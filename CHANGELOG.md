@@ -4,7 +4,7 @@
 이 형식은 [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)를 기반으로 하며,
 이 프로젝트는 [Semantic Versioning](http://semver.org/spec/v2.0.0.html)을 따릅니다.
 
-## [Unreleased]
+## [0.1.0] - 2026-10-13
 
 **New**:
 - `RealtimeClient`(`IRealtimeClient`)와 `RealtimeClientOptions`: single-flight 연결, 연결마다 재로그인(`LoginAsync`), 호출 시 자동 연결, 지수 백오프 + 지터 자동 재연결, `Disconnected`/`Reconnected` 이벤트
