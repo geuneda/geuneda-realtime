@@ -2,7 +2,7 @@
   "name": "com.geuneda.realtime",
   "displayName": "Geuneda Realtime",
   "author": "geuneda",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "unity": "2021.3",
   "license": "MIT",
   "description": "WebSocket 실시간 RPC 클라이언트입니다. 연결 관리(single-flight 연결, 재연결마다 재로그인, 지수 백오프), 요청 ID 매칭, 서버 푸시 토픽, 핑퐁, 결과는 Result 코드, 교체 가능한 직렬화(JSON 기본, MessagePack 선택). [RpcService] 계약에서 클라이언트 프록시와 서버 라우트를 만드는 소스 생성기, 같은 계약을 쓰는 ASP.NET Core 서버(Server~)를 함께 둡니다.",

@@ -4,7 +4,7 @@
 이 형식은 [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)를 기반으로 하며,
 이 프로젝트는 [Semantic Versioning](http://semver.org/spec/v2.0.0.html)을 따릅니다.
 
-## [Unreleased]
+## [0.2.0] - 2026-10-13
 
 **New**:
 - RPC 계약: `[RpcService]` 인터페이스(`Task<TRes> M(TReq)`, `Task M(TReq)`, 인자 없는 메서드, 끝 `CancellationToken`), `[RpcAllowAnonymous]`, 요청·응답 형식과 상수를 인터페이스 안에 둘 수 있음
