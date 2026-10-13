@@ -92,8 +92,8 @@ namespace Geuneda.Realtime
 			}
 		}
 
-		/// <summary>서버 오류 상태의 최솟값입니다(core 결과 코드 범위 표의 게임 범위).</summary>
-		private const int MinServerErrorCode = 100000;
+		/// <summary>서버 오류 상태의 최솟값입니다(100000~100999 서버 프레임워크, 101000 이상 게임).</summary>
+		private const int MinServerErrorCode = RpcStatusCodes.FrameworkRangeStart;
 
 		private static readonly ModuleLogger Logger = new ModuleLogger("Geuneda.Realtime");
 		private static readonly Subscription[] NoSubscriptions = new Subscription[0];
@@ -157,7 +157,7 @@ namespace Geuneda.Realtime
 			_reconnectMaxDelay = options.ReconnectMaxDelay >= _reconnectBaseDelay ? options.ReconnectMaxDelay
 				: throw new ArgumentException("ReconnectMaxDelay must be >= ReconnectBaseDelay", nameof(options));
 			_dispatcher = options.CallbackDispatcher ?? (action => UniTask.Post(action));
-			_subProtocol = "geuneda.rpc.v1." + _serializer.Name;
+			_subProtocol = RpcProtocol.SubProtocolOf(_serializer.Name);
 		}
 
 		public RealtimeState State

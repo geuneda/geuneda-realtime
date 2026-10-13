@@ -13,7 +13,7 @@ namespace Geuneda.Realtime
 	{
 		/// <summary>
 		/// 요청을 보내고 응답을 받습니다. 실패는 예외 대신 코드입니다: 연결 실패·끊김 <c>NetworkError</c>, 시간 초과 <c>Timeout</c>,
-		/// 취소 <c>Cancelled</c>, 서버 상태 코드가 100000 이상(게임 범위)이면 그 값, 그 밖의 0 이 아닌 상태나 응답 해석 실패는
+		/// 취소 <c>Cancelled</c>, 서버 상태 코드가 100000 이상(100000~100999 서버 프레임워크 <see cref="RpcStatusCodes"/>, 101000 이상 게임)이면 그 값, 그 밖의 0 이 아닌 상태나 응답 해석 실패는
 		/// <see cref="RealtimeResultCodes.InvalidResponse"/>.
 		/// </summary>
 		/// <remarks>

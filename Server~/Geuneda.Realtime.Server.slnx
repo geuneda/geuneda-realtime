@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/samples/">
+    <Project Path="samples/Geuneda.Realtime.SampleServer/Geuneda.Realtime.SampleServer.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Geuneda.Realtime.Generator/Geuneda.Realtime.Generator.csproj" />
+    <Project Path="src/Geuneda.Realtime.Server/Geuneda.Realtime.Server.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Geuneda.Realtime.Generator.Tests/Geuneda.Realtime.Generator.Tests.csproj" />
+    <Project Path="tests/Geuneda.Realtime.Server.Tests/Geuneda.Realtime.Server.Tests.csproj" />
+  </Folder>
+</Solution>

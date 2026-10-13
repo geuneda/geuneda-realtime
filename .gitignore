@@ -86,3 +86,8 @@ crashlytics-build.properties
 # Geuneda.Core 개인 덮어쓰기 설정 에셋(ConfigAssetLoader, Editor/Resources 에 둠)
 *.user.asset
 *.user.asset.meta
+
+# Server~ (.NET 서버·생성기 솔루션): 빌드 산출물은 무시하고, 위의 Unity 용 *.csproj 무시에서 프로젝트 파일은 뺀다
+Server~/**/bin/
+Server~/**/obj/
+!Server~/**/*.csproj

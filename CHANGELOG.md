@@ -4,6 +4,18 @@
 이 형식은 [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)를 기반으로 하며,
 이 프로젝트는 [Semantic Versioning](http://semver.org/spec/v2.0.0.html)을 따릅니다.
 
+## [Unreleased]
+
+**New**:
+- RPC 계약: `[RpcService]` 인터페이스(`Task<TRes> M(TReq)`, `Task M(TReq)`, 인자 없는 메서드, 끝 `CancellationToken`), `[RpcAllowAnonymous]`, 요청·응답 형식과 상수를 인터페이스 안에 둘 수 있음
+- 소스 생성기 `Geuneda.Realtime.Generator`(Roslyn 4.3, `Runtime/Generator` 의 분석기 DLL): 클라이언트 프록시 `XxxClient`·`IXxxClient`·메서드 경로 표 `XxxMethods`, 서버 라우트 표 `GeneratedRpcRoutes`, 계약 규칙·경로 이름·ID·생성 이름 충돌 빌드 오류(GRPC001~014)
+- ASP.NET Core 서버 `Geuneda.Realtime.Server`(`Server~/`, .NET 10): `AddRealtimeRpc`/`MapRealtimeRpc`, 서브프로토콜 협상(JSON, MessagePack), 로그인 전 호출 차단, 세션당 순차 실행과 대기열 포화 시 `Overloaded`, 핑 응답, 무응답 종료, 중복 로그인 4001, 닫힐 때 남은 요청 미실행·진행 중 호출 취소 알림, `IRpcContext`, `IRealtimeSessions` 푸시, `RpcStatusException`, 시작 검사
+- 응답 상태 코드 `RpcStatusCodes`(100000~100999 서버 프레임워크, 101000 부터 게임), 서브프로토콜 이름 규칙 `RpcProtocol`
+- 샘플 서버와 Unity 상호 운용 테스트(`[Explicit]`)
+
+**Changed**:
+- `MessagePackRpcSerializer` 의 기본 옵션이 `MessagePackSecurity.UntrustedData`(해시 충돌 방어, 깊이 제한)를 씀. 이전 기본은 신뢰 데이터 설정
+
 ## [0.1.0] - 2026-10-13
 
 **New**:

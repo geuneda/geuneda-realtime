@@ -15,7 +15,11 @@ namespace Geuneda.Realtime
 	/// </para>
 	/// <para>
 	/// 본문 타입은 <c>[MessagePackObject]</c> 와 <c>[Key]</c> 로 표시합니다. IL2CPP 빌드는 리플렉션 생성(동적 코드)을 쓸 수 없으므로
-	/// 소스 생성기가 만든 포매터가 들어 있는 리졸버를 <paramref name="options"/> 로 넘깁니다.
+	/// 소스 생성기가 만든 포매터가 들어 있는 리졸버를 <c>options</c> 로 넘깁니다.
+	/// </para>
+	/// <para>
+	/// 옵션을 넘기지 않으면 <c>MessagePackSecurity.UntrustedData</c>(해시 충돌 방어, 깊이 제한)를 씁니다. 서버는 네트워크 입력을 받으므로
+	/// 옵션을 직접 넘길 때도 <c>.WithSecurity(MessagePackSecurity.UntrustedData)</c> 를 붙입니다.
 	/// </para>
 	/// </remarks>
 	public sealed class MessagePackRpcSerializer : IRpcSerializer
@@ -24,10 +28,10 @@ namespace Geuneda.Realtime
 
 		public string Name => "msgpack";
 
-		/// <param name="options">MessagePack 설정. 없으면 <see cref="MessagePackSerializer.DefaultOptions"/></param>
+		/// <param name="options">MessagePack 설정. 없으면 표준 리졸버에 <c>UntrustedData</c> 보안</param>
 		public MessagePackRpcSerializer(MessagePackSerializerOptions options = null)
 		{
-			_options = options;
+			_options = options ?? MessagePackSerializerOptions.Standard.WithSecurity(MessagePackSecurity.UntrustedData);
 		}
 
 		public byte[] Serialize<T>(T value)

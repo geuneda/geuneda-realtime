@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Unity(Roslyn 4.3)와 서버가 함께 쓰는 소스 생성기. 다른 패키지에 의존하지 않는 DLL 하나여야 한다 -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IsRoslynComponent>true</IsRoslynComponent>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    <RootNamespace>Geuneda.Realtime.Generator</RootNamespace>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.3.1" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="$(RealtimeRuntimeDir)Protocol/Fnv1a32.cs" Link="Shared/Fnv1a32.cs" />
+    <AdditionalFiles Include="AnalyzerReleases.Shipped.md" />
+    <AdditionalFiles Include="AnalyzerReleases.Unshipped.md" />
+    <InternalsVisibleTo Include="Geuneda.Realtime.Generator.Tests" />
+  </ItemGroup>
+
+  <!-- Release 빌드는 Unity 패키지의 생성기 DLL(Runtime/Generator)을 갱신한다 -->
+  <Target Name="CopyGeneratorToUnityPackage" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(RealtimeRuntimeDir)Generator/" />
+  </Target>
+</Project>

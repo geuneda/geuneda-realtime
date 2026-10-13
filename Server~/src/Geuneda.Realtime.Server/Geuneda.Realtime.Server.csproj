@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- ASP.NET Core 실시간 RPC 서버. 프레임·직렬화·계약 표시 파일은 Unity 패키지(Runtime)의 것을 링크해 프로토콜을 한 곳에서 관리한다 -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>Geuneda.Realtime.Server</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Geuneda.Realtime.Server.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="MessagePack" Version="3.1.12" />
+  </ItemGroup>
+
+  <ItemGroup Label="Unity 패키지와 공유">
+    <Compile Include="$(RealtimeRuntimeDir)Protocol/*.cs" LinkBase="Shared/Protocol" />
+    <Compile Include="$(RealtimeRuntimeDir)Serialization/*.cs" LinkBase="Shared/Serialization" />
+    <Compile Include="$(RealtimeRuntimeDir)MessagePack/MessagePackRpcSerializer.cs" LinkBase="Shared/MessagePack" />
+    <Compile Include="$(RealtimeRuntimeDir)Contracts/*.cs" LinkBase="Shared/Contracts" />
+    <Compile Include="$(RealtimeRuntimeDir)RealtimeCloseCodes.cs" Link="Shared/RealtimeCloseCodes.cs" />
+    <Compile Include="$(RealtimeRuntimeDir)RpcStatusCodes.cs" Link="Shared/RpcStatusCodes.cs" />
+  </ItemGroup>
+</Project>

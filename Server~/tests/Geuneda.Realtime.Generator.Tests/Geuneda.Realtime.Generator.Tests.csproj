@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>Geuneda.Realtime.Generator.Tests</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.3.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../src/Geuneda.Realtime.Generator/Geuneda.Realtime.Generator.csproj" />
+    <!-- 서버 라이브러리에도 링크된 Fnv1a32 가 있어 별칭으로 구분한다 -->
+    <ProjectReference Include="../../src/Geuneda.Realtime.Server/Geuneda.Realtime.Server.csproj" Aliases="ServerLib" />
+  </ItemGroup>
+</Project>
